@@ -1,0 +1,7 @@
+*.session
+*.sh
+*.mp4
+*.jpg
+.DS_Store
+*.webp
+venv
