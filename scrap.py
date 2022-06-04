@@ -1,5 +1,7 @@
-from telethon import TelegramClient, sync
+from telethon import TelegramClient
 import os
+
+from download import Download
 # import logging
 # import asyncio
 # import socks
@@ -12,17 +14,8 @@ client = TelegramClient('test2', api_id, api_hash)
 
 
 client.start()
-
-
-def callback(current, total):
-    print('Downloaded', current, 'out of', total,
-          'bytes: {:.2%}'.format(current / total))
-
-
-for message in client.iter_messages(group_name):
-    if message.media:
-        client.download_media(message, progress_callback=callback)
-
+downloader = Download(client, group_name, False)
+downloader.links()
 
 # def load_messages():
 #     dialogs = client.get_dialogs()
@@ -38,6 +31,5 @@ for message in client.iter_messages(group_name):
 #         if message.media:
 #             print('Downloading...')
 #             client.download_media(message)
-
 
 # load_messages()

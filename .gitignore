@@ -2,6 +2,7 @@
 *.sh
 *.mp4
 *.jpg
+*.zip
 .DS_Store
 *.webp
 venv
